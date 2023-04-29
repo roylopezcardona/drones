@@ -36,6 +36,7 @@ To run the service locally, do the following:
 3. Execute `./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000"` to run in debug mode
 4. Once the application is running, a set of Drones, Medications and its relationships are preloaded.
 5. Use the Postman collections provided along with the app to interact with the Rest API.
+   1. See `drones.postman_collection` file in the root directory v2.1 of postman collections
 
 ## Assumptions/Clarifications
 

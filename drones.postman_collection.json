@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "d25a1ab9-fd49-4e52-a8ae-d36d9b5591d8",
+		"name": "drones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1554091"
+	},
+	"item": [
+		{
+			"name": "Create Drone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99998\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 10,\n    \"weightLimit\": 400,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Drone",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 11,\n    \"serialNumber\": \"11111-00000-99997\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Drone by Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99999\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 40,\n    \"weightLimit\": 300,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/11?includeMedications=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"11"
+					],
+					"query": [
+						{
+							"key": "includeMedications",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Drone medications",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99999\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 40,\n    \"weightLimit\": 300,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/1/medications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"1",
+						"medications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Drone battery",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99999\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 40,\n    \"weightLimit\": 300,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/1/battery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"1",
+						"battery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Drones available to load",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99999\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 40,\n    \"weightLimit\": 300,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/1/available-to-load",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"1",
+						"available-to-load"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Drones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"11111-00000-99999\",\n    \"model\": \"LIGHT_WEIGHT\",\n    \"batteryCapacity\": 40,\n    \"weightLimit\": 300,\n    \"state\": \"IDLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones?includeMedications=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones"
+					],
+					"query": [
+						{
+							"key": "includeMedications",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load Medications in drone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 6\n    },\n    {\n        \"id\": 3\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/drones/11/medications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"drones",
+						"11",
+						"medications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Medication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"111110000099999_-asgadg4545\",\n    \"weight\": 300,\n    \"code\": \"CODE_00002\",\n    \"pictureUrl\": \"http://sosmething/images/4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/medications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"medications"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
