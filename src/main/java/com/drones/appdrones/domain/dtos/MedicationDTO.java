@@ -13,12 +13,14 @@ public class MedicationDTO {
     @NotNull(groups = {UpdateValidationGroup.class})
     private Long id;
 
+    @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
     @Pattern(groups = {CreateValidationGroup.class, UpdateValidationGroup.class}, regexp = "^[a-zA-Z0-9\\_\\-]+$", message = "name has to follow {regexp}")
     private String name;
 
     @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class}, message = "weight is required")
     private Float weight;
 
+    @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
     @Pattern(groups = {CreateValidationGroup.class, UpdateValidationGroup.class}, regexp = "^[A-Z0-9\\_]+$", message = "code has to follow {regexp}")
     private String code;
 

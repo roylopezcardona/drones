@@ -4,6 +4,7 @@ import com.drones.appdrones.domain.enums.Model;
 import com.drones.appdrones.domain.enums.State;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +16,16 @@ import java.util.List;
 public class Drone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+            name = "sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "drone_sequence"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "11"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     private Long id;
 
     @Column(name = "serial_number", nullable = false, length = 100, unique = true)
@@ -33,7 +43,7 @@ public class Drone {
     @Enumerated(EnumType.STRING)
     private State state;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "drone_medication", joinColumns = @JoinColumn(name = "drone_id"), inverseJoinColumns = @JoinColumn(name = "medication_id"))
     private List<Medication> medications;
 
