@@ -23,7 +23,7 @@ public class MedicationServiceImpl implements MedicationService {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public void create(final MedicationDTO medication) {
+    public MedicationDTO create(final MedicationDTO medication) {
         ValidationUtil.validate(medication, true);
 
         final Optional<Medication> existingMedication = medicationRepository.findByCode(medication.getCode());
@@ -31,7 +31,7 @@ public class MedicationServiceImpl implements MedicationService {
             throw new DronesAppException(HttpStatus.CONFLICT, String.format("Medication with code %s already exists", medication.getCode()));
         }
         final Medication medicationToSave = objectMapper.convertValue(medication, Medication.class);
-        medicationRepository.save(medicationToSave);
+        return objectMapper.convertValue(medicationRepository.save(medicationToSave), MedicationDTO.class);
     }
 
     @Override

@@ -13,8 +13,8 @@ public class MedicationController {
     private MedicationService medicationService;
 
     @PostMapping
-    public void create(@RequestBody final MedicationDTO medication) {
-        medicationService.create(medication);
+    public MedicationDTO create(@RequestBody final MedicationDTO medication) {
+        return medicationService.create(medication);
     }
 
 }
