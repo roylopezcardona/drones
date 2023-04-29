@@ -50,3 +50,9 @@ To run the service locally, do the following:
 7. The scheduled task is intended to be executed every day, so that the battery level is audited and stored in the table `battery_log`
    1. Per implementation, it is set to execute every 10 seconds - just to see it working
 8. Just some tests are implemented to demonstrate its usage. Not all scenarios are covered
+9. Used java.util.Date instead of java 8 new LocalDateTime or LocalDate to avoid extra configuration due to lack of time.
+
+## Clarifications
+
+1. Skipping implementation of the full set of tests due to lack of time.
+2. Skipping documentation of method and classes due to lack of time.
